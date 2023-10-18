@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Factorial</h1>
+    <script>
+       // !n=1*2*3...*n
+       // a^b = 5*5*5*5 where a=5,b=4
+        let n=prompt("Enter a value:");
+        n=parseInt(n);
+
+        let r=1;
+        let d=n;
+        for(let i=1;i<=n;i++){ 
+            if(i<n)d+=" x "+(n-i);            
+            r=r*i;
+        }
+        d+="=";
+        d+=r
+        document.write(d);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+            Name<br> <input type="text" name="name" /><span></span>
+        </div>
+        <div>
+            Email<br> <input type="text" id="email" name="email" /><span></span>         
+        </div>
+        <div>
+            Mobile<br> <input type="text" id="mobile" name="mobile" /><span></span>        
+        </div>
+        <br>
+        <input type="button" id="btn" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById("btn").addEventListener("click",()=>{
+
+        });
+         
+        document.querySelector("#mobile").addEventListener("blur",(e)=>{
+            let span= e.target.nextSibling
+            let mobile=e.target.value;
+
+            if(/^[0-9]{10,15}$/.test(mobile)){
+                span.innerHTML="Ok";
+            }else{
+                span.innerHTML="Invalid";
+            }
+            
+        });
+
+        document.querySelector("#email").addEventListener("blur",(e)=>{
+             
+           let span= e.target.nextSibling
+           let email=e.target.value;
+            //span.innerHTML="ok";
+
+            if(/^[a-z]+[a-zA-Z0-9]*[@][a-z]+[.][a-z]{2,3}$/.test(email)){
+                span.innerHTML="Ok";
+            }else{
+                span.innerHTML="Invalid";
+            }
+           
+
+
+        });
+    </script>
+</body>
+</html>

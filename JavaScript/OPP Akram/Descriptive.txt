@@ -1,0 +1,12 @@
+1. What are the characteristics of JavaScript?
+2. What is the function of return statement?
+3. What do you mean by local and global variable?
+4. What is the difference between while and do-while loop?
+5. What is the function of break and continue statement?
+6. What do you mean by Array? How will you declare an array?
+7. What is the difference between “==” and “===” operator?
+8. What do you mean by “with” statements? Write it’s syntax.
+9. What do you mean by DOM? Write its properties.
+10. What is history object? Write methods of it.
+
+

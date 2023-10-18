@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name="Md. Jahiudl3 Islm";
+        let mobile="01715785434";
+
+        if(/^[a-zA-Z .]{4,25}$/.test(name)){
+            document.write(name);
+        }else{
+           document.write("Invalid Name");
+        }            
+         
+         document.write("<br>");
+
+         if(/^[0-9]{11}$/.test(mobile)){
+            document.write(mobile);
+            
+         }else{
+            document.write("Invalid Mobile");
+         }
+
+
+
+    </script>
+</body>
+</html>

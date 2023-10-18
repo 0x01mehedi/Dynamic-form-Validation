@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Email Validation</title>
+</head>
+
+<body>
+
+	<h5>The mail address</h5>
+	<form>
+		<input type="text" id="mail" placeholder="Email address"> &nbsp; <span id="vm"></span>
+		<br><br>
+		<input type="password" id="password" placeholder="Password"> &nbsp; <span id="vp"></span>
+		<br><br>
+		<input type="button" onClick="check(); return false;" value="Verify">
+		<br><br>
+	</form>
+
+
+	<script>
+		function check() {
+			var m = document.getElementById('mail').value;
+			var p = document.getElementById('password').value;
+
+			if (m.includes("@") && m.includes(".")) {
+				document.getElementById('vm').style.color = 'green';
+				document.getElementById('vm').innerHTML = "Valid mail address";
+			} else {
+				document.getElementById('vm').style.color = 'red';
+				document.getElementById('vm').innerHTML = "Invalid mail address";
+			}
+
+			if (p.length < 8) {
+				document.getElementById('vp').style.color = 'red';
+				document.getElementById('vp').innerHTML = "Invalid password";
+			} else {
+				document.getElementById('vp').style.color = 'green';
+				document.getElementById('vp').innerHTML = "Valid password";
+			}
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       class Student{
+           constructor(name,roll,clas,section){
+             this.name=name;
+             this.roll=roll;
+             this.clas=clas;
+             this.section=section;           
+           }    
+           
+           show(){
+            document.write(`
+                Name:${this.name}<br>
+                Roll:${this.roll}<br>
+                Class:${this.clas}<br>
+                Section:${this.section}<br>          
+            `);
+           }
+
+       }
+
+       class StudentNineTen extends Student{
+           constructor(name,roll,clas,section,group){
+            super(name,roll,clas,section);
+            this.group=group;
+           }
+
+           show(){
+            document.write(`
+                Name:${this.name}<br>
+                Roll:${this.roll}<br>
+                Class:${this.clas}<br>
+                Section:${this.section}<br>  
+                Group:${this.group}<br>         
+            `);
+           }
+
+           static ShowTime(){
+             let d=new Date();
+             document.write(`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`);
+           }
+       }
+
+       //---------------------------------//
+
+       let s1=new Student("Jahidul","30","Five","A");
+       let s2=new StudentNineTen("Rahim","34","Nine","A","Science");
+
+       s2.show();       
+       StudentNineTen.ShowTime();
+
+    
+
+    </script>
+</body>
+</html>

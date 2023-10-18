@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 3px;
+        }
+        div {
+            margin-bottom: 8px;
+        }
+        p#error {
+            /* background: #f8d7da; */
+            color: #dc3545;
+            margin: 0;
+            margin-top: 5px;
+        }
+        p#success {
+            /* background: #f8d7da; */
+            color: #198754;
+            margin: 0;
+            margin-top: 5px;
+        }
+    </style>
+    <script src="students.js"></script>
+</head>
+<body>
+    <form action="" name="form">
+        <div>
+            <label for="">Name</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="email">
+            <p id="error"></p>
+        </div>
+        <div>
+            <label for="">Phone</label>
+            <input type="tel" name="phone">
+        </div>
+        <div>
+            <label for="">City</label>
+            <select name="city" id="">
+                <option>Dhaka</option>
+                <option>Barishal</option>
+                <option>Khulna</option>
+            </select>
+        </div>
+        <div>
+            <label for="">Subjects</label>
+            <input type="checkbox" name="subjects" id="" value="English"> English
+            <input type="checkbox" name="subjects" id="" value="Math"> Math
+            <input type="checkbox" name="subjects" id="" value="Marketing"> Marketing
+        </div>
+        <div>
+            <label for="">Gender</label>
+            <input type="radio" name="gender" id="" value="Male"> Male
+            <input type="radio" name="gender" id="" value="Female"> Female
+        </div>
+        <div>
+            <label for="">Address</label>
+            <textarea name="address" id=""></textarea>
+        </div>
+        <button id="btn">Submit</button>
+        <p id="success"></p>
+    </form>
+
+    <script>
+        let btn=document.getElementById("btn").addEventListener("click",()=>{
+            event.preventDefault();
+            let name=document.form.name.value;
+            let email=document.form.email.value;
+            let phone=document.form.phone.value;
+            let city=document.form.city.value;
+            let subjects=document.form.subjects;
+            let gender=document.form.gender;
+            let address=document.form.address.value;
+
+            let error=[];
+            //akramhoshen2018@gmail.com
+            if(!/^[a-z]+[a-zA-z0-9_]*[@][a-z]+[.][a-z]{2,3}$/.test(email)){
+                error.push("Email is invalid")
+            }
+
+            let errorMessege=document.getElementById("error");
+            let successMessege=document.getElementById("success");
+
+            if(error.length > 0){
+                errorMessege.innerHTML= error.join("");
+            }else{
+                successMessege.innerHTML = "Your submission was successfully sent.";
+
+                let student=new Student(name,email,phone,city,subjects,gender,address);
+                student.display();
+            }
+        })
+    </script>
+</body>
+</html>

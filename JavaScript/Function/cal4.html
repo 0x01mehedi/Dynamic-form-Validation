@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .cal{
+            padding: 8px;
+            border-radius: 5px;
+           box-shadow: 0 0 10px 3px rgba(0,0,0,.5);
+        }
+        input[type="text"]{
+            padding:5px;
+        }
+        input[type="button"]{
+          width: 40px;
+          height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cal">
+        <div>CASIO</div>
+        <table>
+            <tr>
+                <td colspan="4"><input type="text" id="output" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="btn" value="%" id="percent" /></td>
+                <td><input type="button" class="btn" value="CE" id="ce" /></td>
+                <td><input type="button" class="btn" value="C" id="c" /></td>
+                <td><input type="button" class="btn" value="<" id="backspace" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="btn" value="7" id="seven" /></td>
+                <td><input type="button" class="btn" value="8" id="eight" /></td>
+                <td><input type="button" class="btn" value="9" id="nine" /></td>
+                <td><input type="button" class="btn" value="x" id="mul" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="btn" value="4" id="four" /></td>
+                <td><input type="button" class="btn" value="5" id="five" /></td>
+                <td><input type="button" class="btn" value="6" id="six" /></td>
+                <td><input type="button" class="btn" value="-" id="minus" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="btn" value="1" id="four" /></td>
+                <td><input type="button" class="btn" value="2" id="five" /></td>
+                <td><input type="button" class="btn" value="3" id="six" /></td>
+                <td><input type="button" class="btn" value="+" id="plus" /></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="btn" value="+/-" id="four" /></td>
+                <td><input type="button" class="btn" value="0" id="five" /></td>
+                <td><input type="button" class="btn" value="." id="six" /></td>
+                <td><input type="button" class="btn" value="=" id="plus" /></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let btns=document.querySelectorAll(".btn");
+        let display=document.getElementById("output");
+        /*
+        btns.forEach((btn)=>{
+            btn.addEventListener("click",(e)=>{
+                alert(e);
+            });            
+        });
+        */
+        var exp="";
+        for(let btn of btns){
+            btn.addEventListener("click",(e)=>{
+               // alert(e.target.value);
+               if(e.target.value=="="){
+                 exp=eval(exp);
+               }else if(e.target.value=="C"){
+                 exp="";
+               }else if(e.target.value=="CE"){
+                 exp="";
+               }else if(e.target.value=="%"){
+                 //exp="";
+               }else if(e.target.value=="+/-"){
+                 //exp="";
+               }else if(e.target.value=="."){                
+                 exp+=e.target.value=="x"?"*":e.target.value;
+               }else if(e.target.value=="<"){
+                 exp=exp.slice(0, -1);
+               }else{
+                exp+=e.target.value=="x"?"*":e.target.value;              
+               }
+
+               display.value=exp;
+            });
+        }
+
+            
+
+        
+    </script>
+</body>
+</html>

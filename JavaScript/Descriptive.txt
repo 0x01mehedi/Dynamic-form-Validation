@@ -1,0 +1,59 @@
+1. What are the characteristics of JavaScript?
+2. What is the function of return statement?
+3. What do you mean by local and global variable?
+4. What is the difference between while and do-while loop?
+5. What is the function of break and continue statement?
+6. What do you mean by Array? How will you declare an array?
+7. What is the difference between “==” and “===” operator?
+8. What do you mean by “with” statements? Write it’s syntax.
+9. What do you mean by DOM? Write its properties.
+10. What is history object? Write methods of it.
+
+Operator Presedence----
+http://vcampusbd.com/blogs/4215/idb-bisew-descriptive-questions-on-javascript
+
+
+1. Characteristics of JavaScript:
+   - JavaScript is a high-level, interpreted scripting language.
+   - It is primarily used for adding interactivity to web pages.
+   - JavaScript is executed by web browsers.
+   - It's versatile and can be used both on the client-side and server-side (Node.js).
+   - Supports event-driven, asynchronous programming.
+   - Has a dynamic and loosely typed nature.
+   - Provides a variety of built-in objects and functions for common tasks.
+
+2. Function of the return statement:
+   - The `return` statement is used in functions to specify the value that the function will produce as output.
+   - When a function encounters a `return` statement, it immediately exits and returns the specified value to the caller.
+
+3. Local and global variables:
+   - Local variables are declared within a specific function and have local scope, meaning they can only be accessed within that function.
+   - Global variables are declared outside of any function and have global scope, making them accessible from anywhere in the code.
+
+4. Difference between while and do-while loop:
+   - `while` loop: It tests the condition before executing the loop's code block. If the condition is false initially, the code block may not execute at all.
+   - `do-while` loop: It executes the code block first and then tests the condition. This ensures that the code block runs at least once, even if the condition is false.
+
+5. Function of break and continue statements:
+   - `break`: It is used to exit a loop prematurely, stopping the loop's execution.
+   - `continue`: It is used to skip the current iteration of a loop and proceed to the next iteration.
+
+6. Array:
+   - An array is a data structure in JavaScript used to store and manage a collection of values or elements.
+   - You can declare an array using square brackets `[]`, like this: `var myArray = [1, 2, 3];`
+
+7. Difference between "==" and "===" operator:
+   - "==" checks for equality of values, performing type coercion if necessary (e.g., 1 == '1' evaluates to true).
+   - "===" checks for strict equality, comparing both values and data types (e.g., 1 === '1' evaluates to false).
+
+8. "with" statement:
+   - The "with" statement is used to simplify code by providing a shorthand way to access properties of an object.
+   - Syntax: `with (object) { /* code that can reference object's properties directly */ }`
+
+9. DOM (Document Object Model):
+   - The DOM is a programming interface for web documents.
+   - Properties of the DOM include `document`, `getElementById()`, `getElementsByTagName()`, etc.
+
+10. History object:
+    - The `history` object in JavaScript provides access to the browser's navigation history.
+    - Common methods include `go()`, `back()`, and `forward()`, which allow you to manipulate the browser's navigation history.

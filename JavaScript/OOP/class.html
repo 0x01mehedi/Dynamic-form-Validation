@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+          
+
+        class Point{           
+             constructor(_x,_y){
+               this.x=_x;
+               this.y=_y;
+             }
+        }
+
+        class Employee{
+           constructor(id,dept,position,name,salary){
+             this.id=id;
+             this.dept=dept;
+             this.position=position;
+             this.name=name;
+             this.salary=salary;
+           }
+        }
+
+
+   //-----------Employee---------
+
+   let emp1=new Employee(101,"HR","Admin","Jahidul Islam",40000);
+
+   document.write("ID:"+emp1.id);
+   document.write("<br>");
+   document.write("Name:"+emp1.name);
+   document.write("<br>");
+   document.write("Salary:"+emp1.salary);
+   document.write("<br>");
+   document.write("Position:"+emp1.position);
+
+   let emp2=new Employee(102,"Software Development","Engineer","Md Noman",50000);
+   document.write(`
+        <br>ID:${emp2.id}<br>
+        Name:${emp2.name}<br>
+        Position:${emp2.position}<br>
+        Salary:${emp2.salary}
+   `);
+
+   //---------------Point----------------
+
+   let p4={x:3,y:3};
+
+let p1=new Point(4,6);
+let p2=new Point(5,8);
+   document.write("<br>");
+   document.write("<br>");
+   document.write(p1.x);
+   document.write(p1.y);
+
+ 
+
+    </script>
+</body>
+</html>

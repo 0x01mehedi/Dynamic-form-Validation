@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="time"></div>
+
+    
+    <script>
+        let x=0;
+       function watch(){           
+            let d=new Date();   
+            let w=document.getElementById("time");
+            
+            let hr24=d.getHours();
+            let hr12=hr24;
+
+            let ampm="AM";
+            if(hr24>12){
+                 hr12=hr24-12;
+                 ampm="PM";
+            }
+
+            w.innerHTML=`
+            ${hr12}:
+            ${d.getMinutes()}:
+            ${d.getSeconds()}
+            ${ampm}`;
+
+           setTimeout("watch()",10);
+
+         }
+
+         watch();
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" size="3" onkeyup="Cal()"  id="a" /> 
+    <select id="operator" onchange="Cal()">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+        <option value="^">^</option>
+        <option value="%">%</option>
+       
+    </select>
+    <input type="text" size="3"  onkeyup="Cal()"  id="b" />
+    <input type="button" id="btn" onclick="Cal()" value="=" >
+    <input type="text" size="3" id="r" >
+    <script>
+        
+        function Cal(){  
+
+         let a=document.getElementById("a").value; //"3.5"
+         let b=document.getElementById("b").value; //"4" 
+
+         let o=document.getElementById("operator").value;
+         
+         a=parseFloat(a); //3.5
+         b=parseFloat(b); //4
+         
+        let output= math(a,b,o);
+
+        document.getElementById("r").value=output;  
+
+       }
+
+
+       function math(a,b,o){
+            if(o=="+"){
+                return a+b; 
+            }else if(o=="-"){
+                return a-b; 
+            }else if(o=="/"){
+                return a/b; 
+            }else if(o=="*"){
+                return a*b; 
+            }else if(o=="%"){
+                return a*(b/100); 
+            }else if(o=="^"){
+                    
+                let s=1;
+                for(let i=1;i<=b;i++){
+                  s*=a;
+                }
+                return s; 
+            }
+            return 0;
+       }
+
+       
+        
+  
+  
+        
+      </script>
+
+</body>
+</html>

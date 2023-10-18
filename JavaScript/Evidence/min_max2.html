@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nums=[3,4,454,45,545,,434,323,23];
+        max();
+        document.write("<br>");
+        min(); 
+
+        
+        function max(){
+            let max=nums[0];
+            nums.forEach((n)=>{
+                if(n>max){
+                    max=n;
+                }
+            });
+            document.write(max);
+        }
+
+        function min(){
+            let min=nums[0];
+            nums.forEach((n)=>{
+                if(n<min){
+                    min=n;
+                }
+            });
+            document.write(min);
+        }
+    </script>
+</body>
+</html>

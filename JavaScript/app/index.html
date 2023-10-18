@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+           box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid lightgray;
+            padding: 10px;
+           
+        }
+
+        td {
+            padding: 6px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+        }
+
+        .context {           
+            width: 800px;           
+            padding: 5px;
+        }
+        .context .body{
+         
+
+           display: flex;
+           gap: 20px;
+           flex-flow: row wrap;
+        }
+
+        .item {
+            width: 200px;
+            height: 350px;
+            background-color: bisque;
+           box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+          
+           cursor: pointer;
+           
+        }
+
+        .photo{
+            overflow: hidden;
+        }
+        .item .photo img{
+            transition: .5s ease-in-out;
+            
+           
+        }
+        .item .photo img:hover{
+            transform: scale(1.5);
+        }
+
+     
+
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .item-body {
+            padding: 10px;
+        }
+
+        .item-footer {
+            margin-top: 20px;
+        }
+
+        .cart {
+            margin-left: 20px;
+            width: 450px;
+            min-height: 100px;
+         
+        }
+
+        input[type="button"] {
+            cursor: pointer;
+            padding:4px
+        }
+
+        #search{padding:10px;width: 100%;}
+  
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="context">
+                <input type="text" id="search" placeholder="Search..." />
+            </div>
+          
+        </div>
+        <div class="row">            
+            <div class="context">
+              <div class="body">
+
+              </div>            
+            </div>  
+            <div class="cart">
+
+            </div>          
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+
+    <script>
+//--------------------Initial Calls------------------
+        let products = [
+            { Id: 1, Name: "Mum", UomId: 1, Price: 20, Description: "Water Bottle 100ml", Photo: "mum.jpg", BrandId: 1 },
+            { Id: 2, Name: "Mango", UomId: 1, Price: 200, Description: "Mango from Rajshahi", Photo: "mango.jpg", BrandId: 1 },
+            { Id: 3, Name: "Orange", UomId: 1, Price: 300, Description: "", Photo: "orange.jpg", BrandId: 1 },
+            { Id: 4, Name: "Vegetable", UomId: 1, Price: 70, Description: "", Photo: "vegetable.jpg", BrandId: 4 },
+            { Id: 5, Name: "Banana", UomId: 1, Price: 70, Description: "", Photo: "banana.jpg", BrandId: 4 }
+        ];
+
+        let cart = [];
+
+        printProducts(products);        
+        printCart();
+
+//---------------------------------------------------//
+        function printProducts(items) {
+            let pList = document.querySelector(".context .body");
+
+            let html = ``;
+            items.forEach((product) => {
+                html += `<div class='item'>`
+                html += `<div class='photo'><img src='img/${product.Photo}' width='100%' /></div>`
+                html += `<div class='item-body'>`
+                html += `<h3>${product.Name}</h3>`
+                html += `<div><del>Regular Price: ${product.Price + 20} Tk</del></div>`
+                html += `<div>Offer Price: ${product.Price} Tk</div>`
+                html += `<div>${product.Description}</div>`
+                html += `<div class='item-footer'><input type='button' onclick=addToCart(${product.Id}) value='Add to Cart' /></div>`
+                html += `</div>`
+                html += `</div>`
+            });
+
+            pList.innerHTML = html;
+        }
+
+        //----------Cart Operation-----------//
+
+        function addToCart(Id) {
+
+           //find if item is already exists
+         let c=cart.find((p)=>{
+              return p.Id==Id;
+            });
+           
+            if(!c){ //if not found find product details by id
+
+                let p = products.find((product) => {
+                   return product.Id == Id;
+                 });
+
+                n={Id:p.Id,Name:p.Name,Qty:1,Price:p.Price,Photo:p.Photo}
+                cart.push(n);
+
+            }else{    //if found        
+               
+                 c.Qty++;                
+              
+            }     
+            
+            printCart();
+            
+            document.getElementById("search").value=""
+            document.getElementById("search").focus();
+            printProducts(products);        
+
+        }
+
+
+        function printCart() {
+
+            let elCart = document.querySelector(".cart");
+
+
+            let html = ``;
+            html += "<table class='print'>";
+            html += "<tr><th>SN</th><th>Photo</th><th>Name</th><th>Price</th><th>Qty</th><th>Total</th><th></th><tr>";
+            let sn = 1;
+            total = 0;
+            cart.forEach((product) => {
+                html += `<tr>
+                <td>${sn++}</td>
+                <td><img src=img/${product.Photo} width='50' /></td>
+                <td>${product.Name}</td>
+                <td>${product.Price}</td> 
+                <td>${product.Qty}</td>              
+                <td>${product.Price*product.Qty}</td> 
+                <td>
+                    <button onclick=updateCart(${product.Id},1)>+</button>
+                    <button onclick=updateCart(${product.Id},-1)>-</button>
+                    <button onclick=deleteItem(${product.Id})>Del</button>
+                </td>                            
+                </tr>`;
+                total = total + product.Price*product.Qty;
+
+            });
+            html += `<tr><th colspan='5' style='text-align:right'>Total</th><th>${total}</th><th></th></tr>`;
+            html += `<tr><th colspan='7'><button  onclick='processOrder()'>Order</button><button  onclick='clearCart()'>Clear Cart</button></th></tr>`;
+            html += "</table>";
+
+            elCart.innerHTML = html;
+
+        }
+
+
+       function deleteItem(Id){//3
+
+          cart=cart.filter((item)=>{
+            return item.Id!=Id;
+          });
+
+          printCart();
+       }
+
+       function clearCart(){
+          cart=[];
+          printCart();
+       }
+
+       function updateCart(Id,qty){
+        
+         cart.forEach((p)=>{            
+             if(p.Id==Id)p.Qty+=qty;
+             if(p.Qty<1)p.Qty=1;
+         });
+         
+         printCart();
+       }
+       //------Process Order and Print Receipt---------------
+       function processOrder(){
+
+         let w=open('','',`width=300,height=400,left=${screen.width/2-100},top=100`);
+            w.document.write("<h1>Money Receipt</h1>");
+            
+          let c=  document.querySelector(".cart");
+
+          let str = c.innerHTML.replace(/<button.*?>.*?<\/button>/ig,'');
+
+          w.document.write(str);
+          w.document.write("<input type='button' value='Print' onclick='self.print()' />");        
+
+         console.log(cart);
+
+       }
+
+       //------------Search-----------------
+         
+       document.getElementById("search").addEventListener("input",(e)=>{
+        
+           
+              let rx=new RegExp(e.target.value.toLowerCase());
+
+                           
+              let  items= products.filter(product=>product.Name.toLowerCase().match(rx));                    
+                printProducts(items);
+            
+            
+        });
+    
+
+    </script>
+</body>
+
+</html>

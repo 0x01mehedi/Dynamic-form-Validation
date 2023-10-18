@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a"></div>
+    <script>
+        //1. substring()
+        //2. slice()
+        //3. split()
+        //4. toUpperCase()
+        //5. toLowerCase()
+        //6. bold()
+        //7. italic()
+
+
+        let str="Hello World!";
+        let st=str.slice(0,-1)
+        document.write(str[6]+"<br>");
+        document.write(str.length+"<br>");
+
+        let str2=st.bold().toLocaleUpperCase().italics();
+        document.write(str2);
+
+        //3. split();
+
+        document.write("<br>");
+        document.write("<br>");
+
+        //-----------------------------------//
+        let str3=`Information technology (IT) is a set of related fields that encompass computer systems, software, programming languages and data and information processing and storage.[1] IT forms part of information and communications technology (ICT).[2] An information technology system (IT system) is generally an information system, a communications system, or, more specifically speaking, a computer system — including all hardware, software, and peripheral equipment — operated by a limited group of IT users, and an IT project usually refers to the commissioning and implementation of an IT system.[3]
+Although humans have been storing, retrieving, manipulating, and communicating information since the earliest writing systems were developed,[4] the term information technology in its modern sense first appeared in a 1958 article published in the Harvard Business Review; authors Harold J. Leavitt and Thomas L. Whisler commented that "the new technology does not yet have a single established name. We shall call it information technology (IT)."[5] Their definition consists of three categories: techniques for processing, the application of statistical and mathematical methods to decision-making, and the simulation of higher-order thinking through computer programs.[5]
+The term is commonly used as a synonym for computers and computer networks, but it also encompasses other information distribution technologies such as television and telephones. Several products or services within an economy are associated with information technology, including computer hardware, software, electronics, semiconductors, internet, telecom equipment, and e-commerce.[6][a]
+Based on the storage and processing technologies employed, it is possible to distinguish four distinct phases of IT development: pre-mechanical (3000 BC — 1450 AD), mechanical (1450 — 1840), electromechanical (1840 — 1940), and electronic (1940 to present).[4]
+Information technology is also a branch of computer science, which can be defined as the overall study of procedure, structure, and the processing of various types of data. As this field continues to evolve across the world, its overall priority and importance has also grown, which is where we begin to see the introduction of computer science-related courses in K-12 education.`;
+
+//str3=str3.slice(0,-1);
+let words=str3.split(/[ \n]/);
+
+let a=e=i=o=u=others=0;
+
+words.forEach((w)=>{
+ //document.write(w+"<br>");
+});
+
+for(let j=0;j<str3.length;j++){
+   
+    let char=str3[j].toLocaleLowerCase();
+    //document.write(char+"<br>");
+
+    switch(char){
+        case "a":
+         a++;
+        break;
+        case "e":
+         e++;
+        break;
+        case "i":
+         i++;
+        break;
+        case "o":
+         o++;
+        break;
+        case "u":
+         u++;
+        break;
+        default:
+         others++;
+        break;
+
+    }
+
+}
+
+document.write("Words: "+words.length+"<br>");
+document.write("a: "+a+"<br>");     
+document.write("e: "+e+"<br>"); 
+document.write("i: "+i+"<br>"); 
+document.write("o: "+o+"<br>"); 
+document.write("u: "+u+"<br>"); 
+document.write("Others: "+others+"<br>"); 
+
+
+
+
+
+    </script>
+</body>
+</html>

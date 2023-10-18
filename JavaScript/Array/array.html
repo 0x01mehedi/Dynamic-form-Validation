@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Methods / Function
+        //--------------------
+        //1. push()
+        //2. unshift()
+        //3. pop()
+        //4. shift()
+        //5. slice()
+        //6. splice()
+        //7. forEach()
+        //8. map()
+        //9. filter()
+        //10. find()
+
+        //11. findindex()
+        //12. every()
+        //13. some()
+        //14. reduce()
+        //16. reduceRight()
+        //17. flat()
+        //18. flatMap()
+        //19. concat()
+        //20. fill()
+        //21. copyWith()
+        //22. indexOf()
+        //23. lastIndexOf()
+        //24. includes()
+        //25. sort()
+        //26. reverse()
+        //27. join()
+        //28. toString()
+        //29. isArray()
+        //30. from()
+        //31. of()
+
+        //Property:
+        //--------------
+        // length
+
+        //Operator:
+        //---------------
+        //Spread Operator [...]
+
+        let ar=[];
+        let arr=new Array();
+
+        let names=["Kamal"];
+        names.push("Jahid");
+        names.push("Rahim");
+        names.unshift("Jamal");
+
+        //document.write(names);
+
+        //5. Array.slice()
+
+        let arr5=[3,4,6,7,8,9];
+
+         let out=arr5.slice(-1);
+         document.write(out);
+
+         document.write("<br>");
+         document.write("<br>");
+
+
+         //6. Array.splice()
+         let arr6=[3,4,6,7,8];
+         arr6.splice(-1);
+         document.write(arr6);
+
+         document.write("<br>");
+         document.write("<br>");
+        //7. Array.forEach()
+
+        let arr7=[3,5,7,2,9,4,8];
+                    
+        let total=0;
+        arr7.forEach((data,i)=>{
+            total=total+data;
+           document.write(`<b>${data}</b><br>`);
+        });
+        document.write("------<br>");
+        document.write(total);
+
+        //8. Array.map()
+        let arr8=['😀','😁','😂','🤩','🤪'];
+        document.write("<br>");
+        document.write("<br>");
+         out= arr8.map(o=>{
+            return o+'🤠';
+        });
+        document.write(out.join(" | "));
+
+        //9. Array.filter()
+
+        let arr9=[0,3,5,3,5,-4,-3,2];
+
+        out=arr9.filter(data=>{
+           return data>0;
+        });
+
+        document.write("<br>");
+        document.write("<br>");
+        document.write(out);
+
+
+        //10. Array.find()
+
+        let arr10=[3,5,7,9,2];
+
+        out =arr10.find(data=>{
+            return data==7;
+        });
+
+        document.write("<br>");
+        document.write("<br>");
+        document.write(out);
+
+
+        //19. Array.concat()
+
+        let arr19a=[1,2,3];
+        let arr19b=[4,5,6];
+
+        out= arr19a.concat(arr19b);
+
+        document.write("<br>");
+        document.write("<br>");
+        document.write(out);
+         
+        //Spread operator ...
+
+        let arr19c=[3,6,5];
+        let newArr=[1,2,...arr19c];
+        document.write("<br>");
+        document.write("<br>");
+        document.write("Spread Operator: "+newArr);
+
+
+        //22. Array.indexOf()
+
+        let arr22=[1,2,4,5,6,7];
+        out=arr22.indexOf(5);
+        document.write("<br>");
+        document.write("<br>");
+        document.write("Q 22) "+out);
+
+        //24. Array.includes()
+        let arr24=[43,5,74,35,8,3];
+        out=arr24.includes(35);
+        document.write("<br>");
+        document.write("<br>");
+        document.write(out);
+
+        //25. Array.sort()
+
+        let arr25=[43,5,74,35,8,3];
+        arr25.sort((a,b)=>{
+            if(a>b){
+              return 1;
+            }else{
+              return -1;
+            }
+        });
+        document.write("<br>");
+        document.write("<br>");
+        document.write(arr25);
+
+         //26. Array.reverse()
+
+         let arr26=[1,2,3,4,5,6,7];
+         arr26.reverse();  
+
+         document.write("<br>");
+         document.write("<br>");
+         document.write(arr26);
+ 
+        
+
+    </script>
+</body>
+</html>

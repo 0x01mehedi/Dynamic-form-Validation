@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
+  <!-- Array.sort()
+  Array.filter()
+  Array.map()
+  Array.reduce()
+  Array.includes()
+  Array.some()
+  Array.findIndex()
+  Array.find() -->
+
+    <script>
+    let array= [{
+  "number": "4",
+  "fileName": "fileXX",
+  "rating": {
+    "average": 6.4
+  }
+}, {
+  "number": "3",
+  "fileName": "fileXX",
+  "rating": {
+    "average": 5.4
+  }
+}, {
+  "number": "4",
+  "fileName": "fileXX",
+  "rating": {
+    "average": 5.4
+  }
+}]
+
+//Sort against average if number is equal otherwise as number
+array.sort((a, b) => {
+  if(a.number === b.number) {
+    // If two elements have same number, then the one who has larger rating.average wins
+    return b.rating.average - a.rating.average;
+  } else {
+    // If two elements have different number, then the one who has larger number wins
+    return b.number - a.number;
+  }
+});
+
+//Remove Duplicate Number
+// array = array.filter((element, index) => {
+//   return index === 0 || element.number !== array[index-1].number;
+// });
+//console.log(array);
+array=array.filter(element=>element.number==3);
+
+console.log(array);
+
+const inventory = [
+  { name: "apples", quantity: 2 },
+  { name: "bananas", quantity: 0 },
+  { name: "cherries", quantity: 5 },
+];
+
+//const result = inventory.find(({ name }) => name === "cherries");//array destructuring method
+const result = inventory.find((element) => element.name === "cherries");
+console.log(result); // { name: 'cherries', quantity: 5 }
+
+//Array Destructuring
+
+
+    </script>
+</body>
+</html>
