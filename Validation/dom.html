@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="student.js"></script>
+    <script src="validation.js"></script>
+</head>
+<body>
+<form name="f">
+    <div>
+        Name<br> <input type="text"  name="name">
+    </div>
+    <div>
+        Mobile<br> <input type="text" name="mobile">
+    </div>  
+    <div>
+        Email<br> <input type="text" name="email">
+    </div>   
+    <div>
+        City <br><select name="city">
+            <option>Dhaka</option>
+            <option>Khulna</option>
+            <option>Barisal</option>
+            <option>Rongpur</option>
+        </select>
+    </div>    
+    <div>
+        Subjects<br> 
+        <input type="checkbox" value="English" name="subjects" > English
+        <input type="checkbox" value="Bengali" name="subjects" > Bengali
+        <input type="checkbox" value="Math" name="subjects" > Math
+        <input type="checkbox" value="History" name="subjects" > History
+    </div>   
+    <div>
+        Gender<br>
+        <input type="radio" value="Male" name="gender"  /> Male
+        <input type="radio" value="Female" name="gender"  /> Female
+    </div>
+    <div>
+        Address<br>
+        <textarea name="address"></textarea>
+    </div>
+     <br>
+    <input type="button" id="btn" value="Submit">
+</form>
+
+    <script>    
+    
+    document.getElementById("btn").addEventListener("click",()=>{ 
+        let name=document.f.name.value;       
+        let mobile=document.f.mobile.value;
+        let email=document.f.email.value;        
+        let city=document.f.city.value;
+        let address=document.f.address.value;
+        let subjects=document.f.subjects;
+        let gender=document.f.gender;      
+        
+        //jahidul_32@yahoo.com
+        //let rex_email=/^[a-z]+[a-zA-Z0-9_]*[@][a-z]+[.][a-z]{2,3}$/;
+        // if(!rex_email.test(email)){
+        //   alert("Email is invalid");
+        // }    
+        
+        if(!Validation.isValidEmail(email)){
+            alert("Email is invalid");
+        }
+
+          
+        if(!Validation.isValidMobile(mobile)){
+            alert("Mobile is invalid");
+        }
+        
+        
+       //Create Object
+        let student=new Student(name,mobile,email,city,address,gender,subjects);
+        student.display();
+    });//end Event End
+</script>
+</body>
+</html>
