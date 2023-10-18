@@ -1,2 +1,2 @@
-# Velidartion-From-Velidation
-This is my Dynamic form validation check project using javascript.
+# Dynamic-From-Validation
+This is my Dynamic form validation check project using JavaScript.
