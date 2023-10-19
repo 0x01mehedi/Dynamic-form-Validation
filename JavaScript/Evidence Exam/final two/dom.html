@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <SCript src=""></SCript>
+</head>
+<body>
+    <form name="f">
+        <div>
+            Name <br> <input type="text" name="name">
+        </div>
+        <div>
+            Mobile <br> <input type="text" name="mobile">
+        </div>
+        <div>
+            Email <br> <input type="text" name="email">
+        </div>
+        <div>
+            City <br>
+            <select name="city">
+                <option>Dhaka</option>
+                <option>Rajshahi</option>
+            </select>
+        </div>
+        <div>
+            Subjects <br>
+            <input type="checkbox" value="English" name="subjects" > English
+        </div>
+        <br>
+        <button id="btn">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("btn").addEventListener("click",()=>{
+
+
+            let name=document.f.name.value;
+            let mobile=document.f.mobile.value;
+
+
+            let student=new Student(name,mobile,email)
+            
+        });
+    </script>
+</body>
+</html>

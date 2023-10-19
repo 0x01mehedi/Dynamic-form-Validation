@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let email=prompt("Enter Value");
+
+        //m ehedi79_ @ gmail . com
+        let rex_email=/^[a-z]+[a-zA-Z0-9_]*[@][a-z]+[.][a-z]{2,3}$/
+
+        if(rex_email.test(email)){
+            document.write("Valid");
+        }else{
+            document.write("Invalid");
+        }
+    </script>
+</body>
+</html>

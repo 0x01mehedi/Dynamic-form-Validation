@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="student.js"></script>
+</head>
+<body>
+    <form class="f" action="">
+        <div>
+            Name <br> <input name="name" type="text" >
+        </div>
+        <div>
+            Mobile <br> <input name="mobile" type="text" >
+        </div>
+        <div>
+            Email <br> <input name="email" type="text" >
+        </div>
+        <div>
+            City <br> 
+            <select name="city">
+                <option>Dhaka</option>
+                <option>Rajshai</option>
+            </select>
+        </div>
+        <div>
+            Subjects<br> 
+            <input type="checkbox" value="English" name="subjects" > English
+            <input type="checkbox" value="Bengali" name="subjects" > Bengali
+            <input type="checkbox" value="Math" name="subjects" > Math
+            <input type="checkbox" value="History" name="subjects" > History
+        </div>
+        <div>
+            Gender <br> 
+            <input type="radio" value="Male" name="gender"> Male
+            <input type="radio" value="Female" name="gender"> Female
+        </div>
+        <div>
+            Address <br> 
+            <textarea name="address"></textarea>
+        </div>
+        <br>
+        <input type="button" id="btn" value="Submit">
+    </form>
+
+
+    <script>
+        document.getElementById("btn").addEventListener("click",()=>{
+            let name=document.f.name.value;
+            let mobile=document.f.mobile.value;
+            let email=document.f.email.value;
+            let city=document.f.city.value;
+            let subjects=document.f.subjects.value;
+            let gender=document.f.gender.value;
+            let address=document.f.address.value;
+
+
+            // let sb="";
+            // for(let s of this.subjects){
+            //     if(s.checked)
+            //     sb+=s.value+","
+            // }
+
+            // let gb="";
+            // for(let g of this.gender){
+            //     if(g.checked)
+            //     gb=g.value;
+            // }
+
+            // let left=window.screen/2 - 150;
+            // let w=window.open("","",`width=300,height=300,reight=100,left=${left}`)
+
+            // w.document.write(`Name: ${this.name}<br>`);
+            // w.document.write(`Mobile: ${this.mobile}<br>`);
+            // w.document.write(`City: ${this.city}<br>`);
+            // w.document.write(`Email: ${this.email}<br>`);
+            // w.document.write(`Address: ${this.address}<br>`);
+            // w.document.write(`Subject: ${sb}<br>`);
+            // w.document.write(`Gender: ${gb}<br>`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            let student=new Student(name,mobile,email,city,address,gender,subjects);
+                student.display();
+        });
+
+    </script>
+</body>
+</html>

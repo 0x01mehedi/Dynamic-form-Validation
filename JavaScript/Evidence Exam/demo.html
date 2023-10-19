@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="f">
+        <div>
+            Name<br> <input type="text" name="name">
+        </div>
+        <div>
+            Mobile<br> <input type="text" name="mobile">
+        </div>
+        <div>
+            City<br> 
+            <select name="city">
+                <option>Dhaka</option>
+                <option>Khulna</option>
+                <option>Sylhet</option>
+                <option>Rajshahi</option>
+            </select>
+        </div>
+        <div>
+            Subjects<br> 
+            <input type="checkbox" value="English" name="subjects"> English
+            <input type="checkbox" value="Bangla" name="subjects"> Bangla
+        </div>
+        <div>
+            Gender<br> 
+            <input type="radio" value="Male" name="gender"> Male
+            <input type="radio" value="Female" name="gender"> Female
+        </div>
+        <div>
+            Address<br> 
+            <textarea name="address"></textarea>
+        </div>
+        <button id="btn">submit</button>
+    </form>
+    
+    <script>
+        let btn=document.getElementById("btn");
+        //Event---------------///
+        btn.addEventListener("click",()=>{
+            
+            let name=document.f.name.value;
+            let mobile=document.f.mobile.value;
+            let city=document.f.city.value;
+            let address=document.f.address.value;
+            
+        let sb="";
+        for(let s of document.f.subjects){
+            if(s.checked){
+                sb+=s.value+", "
+            }
+        }
+        let gb="";
+        for(let g of document.f.gender){
+            if(g.checked){
+                gb=g.value;
+            }
+        }
+            
+        let left=window.screen.width/2 - 150;
+        let w=window.open("","",`width=300,height=400,top=100,left=${left}`);
+
+        with(w.document){
+            write(`Name: ${name}<br>`);
+            write(`Mobile: ${mobile}<br>`);
+            write(`City: ${city}<br>`);
+            write(`Subjects: ${sb}<br>`);
+            write(`Gender: ${gd}<br>`);
+            write(`Address: ${addresss}<br>`);
+        }
+
+
+
+
+
+        });
+    </script>
+</body>
+</html>
